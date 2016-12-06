@@ -1,0 +1,26 @@
+#!/bin/bash
+../config \
+    --prefix=`pwd` \
+    no-shared \
+    no-zlib \
+    no-zlib-dynamic \
+    no-asan \
+    no-crypto-mdebug \
+    no-crypto-mdebug-backtrace \
+    no-dynamic-engine \
+    no-ec_nistp_64_gcc_128 \
+    no-egd \
+    no-fuzz-afl \
+    no-fuzz-libfuzzer \
+    no-heartbeats \
+    no-md2 \
+    no-msan \
+    no-rc5 \
+    no-sctp \
+    no-ssl-trace \
+    no-ssl3 \
+    no-ssl3-method \
+    no-ubsan \
+    no-unit-test \
+    no-weak-ssl-ciphers
+
