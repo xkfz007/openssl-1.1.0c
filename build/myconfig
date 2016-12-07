@@ -1,6 +1,19 @@
 #!/bin/bash
-../config \
-    --prefix=`pwd` \
+current_dir=`pwd`
+build_dir=${current_dir}/builds
+if ! [ -e $build_dir ];then
+    mkdir -p $build_dir
+fi
+
+source_dir=`readlink -f "$current_dir/../source"`
+openssl_dir=${current_dir}/openssl_dir
+if ! [ -e $openssl_dir ];then
+    mkdir -p $openssl_dir
+fi
+cd $build_dir
+$source_dir/config \
+    --prefix=$build_dir \
+    --openssldir=$openssl_dir \
     no-shared \
     no-zlib \
     no-zlib-dynamic \
@@ -24,3 +37,4 @@
     no-unit-test \
     no-weak-ssl-ciphers
 
+cd -
